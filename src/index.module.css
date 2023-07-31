@@ -14,7 +14,8 @@ code {
     monospace;
 }
 ul,
-li {
+li,
+p {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -26,6 +27,8 @@ a {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  background: rgb(128, 124, 124);
+  padding-bottom: 10px;
 }
 .header {
   background-color: chartreuse;
@@ -62,9 +65,7 @@ a {
 .home_title {
   font-size: 28px;
 }
-.back_btn {
-  max-width: 40px;
-}
+
 .search {
   padding: 10px 15px;
   background: rgb(128, 124, 124);
@@ -74,7 +75,7 @@ a {
 }
 .search_btm {
   background: chartreuse;
-  columns: rgb(78, 74, 74);
+  color: rgb(78, 74, 74);
   font-size: 14px;
   font-style: oblique;
   padding: 5px 10px;
@@ -98,4 +99,82 @@ input {
   display: flex;
   margin-left: auto;
   margin-right: auto;
+}
+.back_btn {
+  background: chartreuse;
+  color: rgb(78, 74, 74);
+  padding: 5px 10px;
+  margin: 10px;
+  border: none;
+  width: 80px;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-style: bold;
+  font-weight: 700;
+}
+.cast_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.cast_info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  width: 180px;
+  box-shadow: 1px 1px 1px 1px chartreuse;
+}
+.cast_text {
+  font-size: 14px;
+  padding: 10px 0;
+}
+
+.cast_name {
+  font-style: bold;
+  font-weight: 700;
+}
+
+.additional {
+  display: flex;
+  margin: 20px 0 10px 10px;
+  font-size: 16px;
+}
+.additional_list {
+  display: flex;
+  text-align: center;
+  gap: 20px;
+  margin-left: 20px;
+}
+.additional_lists {
+  color: chartreuse;
+  font-style: bold;
+  font-weight: 700;
+}
+.additional_link {
+  color: inherit;
+  cursor: pointer;
+  font-style: bold;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.additional_link:hover {
+  color: chartreuse;
+}
+.moviesInfo {
+  margin-left: 10px;
+}
+.moviesInfo_list {
+  margin-top: 10px;
+  font-style: bold;
+  font-weight: 700;
+}
+.moviesInfo_lists {
+  margin-top: 10px;
+  color: chartreuse;
+  font-style: bold;
+  font-weight: 700;
 }

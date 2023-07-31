@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchTrendingMovies()
-      .then(({ data }) => setTrendingMovies(data.results))
+      .then(movies => setTrendingMovies(movies))
       .catch(error => console.log(error));
   }, []);
 

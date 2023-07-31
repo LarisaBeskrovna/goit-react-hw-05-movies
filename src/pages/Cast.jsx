@@ -28,21 +28,24 @@ const Cast = () => {
       {loading ? (
         <p>Loading cast....</p>
       ) : (
-        <ul>
+        <ul className={css.cast_list}>
           {cast &&
             cast.map(({ id, name, character, profile_path }) => (
-              <li key={id}>
+              <li className={css.cast_info} key={id}>
                 <img
                   src={
                     profile_path
                       ? `https://image.tmdb.org/t/p/w500/${profile_path}`
                       : defaultImg
                   }
-                  width={250}
+                  width={180}
+                  height={270}
                   alt="poster"
                 />
-                <p>{name}</p>
-                <p>Character: {character}</p>
+                <div className={css.cast_text}>
+                  <p className={css.cast_name}>{name}</p>
+                  <p>{character}</p>
+                </div>
               </li>
             ))}
         </ul>

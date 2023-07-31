@@ -32,7 +32,7 @@ const Reviews = () => {
       {reviews?.length > 0 ? (
         reviews.map(({ id, author, content }) => (
           <li key={id}>
-            <h5>{author}</h5>
+            <h3>{author}</h3>
             <p>{content}</p>
           </li>
         ))

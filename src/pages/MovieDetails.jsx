@@ -3,11 +3,11 @@ import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import { movieDetail } from '../Api';
 import css from '../index.module.css';
 import Loader from '../components/Loader';
-import defaultImg from '../img/no image available.jpg';
+import MoviesInfo from '../components/MoviesInfo';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const [movieDetails, setMovieDetails] = useState();
+  const [movieDetails, setMovieDetails] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
@@ -26,16 +26,10 @@ const MovieDetails = () => {
         setError(true);
         setLoading(false);
       });
-    return () => {
-      source.cancel();
-    };
+    //return () => {
+    //source.cancel();
+    //};
   }, [movieId]);
-
-  const { title, overview, poster_path, release_date, vote_average, genres } =
-    movieDetails;
-  const year = release_date ? release_date.split('-')[0] : '-';
-  const userScore = vote_average ? Math.round(vote_average * 10) : '-';
-  const genresAll = genres ? genres.map(genre => genre.name).join(' | ') : '-';
 
   return (
     <div>
@@ -49,40 +43,20 @@ const MovieDetails = () => {
         <Loader />
       ) : (
         <div>
-          <div>
-            <img
-              src={
-                poster_path
-                  ? `https://image.tmdb.org/t/p/original${poster_path}`
-                  : defaultImg
-              }
-              width={250}
-              alt="poster"
-            />
-            <div>
-              <p>
-                {title} ({year})
-              </p>
-              <p>User score: {userScore}%</p>
+          {movieDetails && <MoviesInfo movieDetails={movieDetails} />}
 
-              <p>{'Overview'}</p>
-              <p>{overview}</p>
-
-              <div>
-                <p>{'Genres:'}</p>
-                <p>{genresAll}</p>
-              </div>
-            </div>{' '}
-          </div>
-
-          <div>
-            <p>Additional information:</p>
-            <ul>
+          <div className={css.additional}>
+            <p className={css.additional_lists}>Additional information:</p>
+            <ul className={css.additional_list}>
               <li>
-                <NavLink to="cast">Cast</NavLink>
+                <NavLink to="cast" className={css.additional_link}>
+                  Cast
+                </NavLink>
               </li>
               <li>
-                <NavLink to="reviews">Reviews</NavLink>
+                <NavLink to="reviews" className={css.additional_link}>
+                  Reviews
+                </NavLink>
               </li>
             </ul>
           </div>
