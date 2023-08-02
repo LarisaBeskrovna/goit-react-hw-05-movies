@@ -7,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(128, 124, 124);
 }
 
 code {
@@ -27,7 +28,7 @@ a {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  background: rgb(128, 124, 124);
+
   padding-bottom: 10px;
 }
 .header {
